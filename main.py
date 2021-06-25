@@ -1,6 +1,4 @@
 class operation:
-    def __init__(self):
-        a=0#todo
     def check_row(self,mR):
         while mR.isdigit() == False :
             print("you input is not an integer number.pleas try again:)")
@@ -70,8 +68,29 @@ class operation:
                     matrixResult[mR].insert(mC,elementResualt)
     def multipied_by_integer(self):
         f=0#todo
+    def ready4multi (self,matrix,mr,mc): 
+         c = [] 
+         for i in range (mc): 
+             d = [] 
+             for j in range (mr): 
+                 d.insert(j,matrix[j][i]) 
+             c.insert(i,d) 
+         return c 
     def multipied_matrices(self):
-        g=0#todo
+        matrix1 ,matrix1Column ,matrix1Row = self.get_matrix()
+        matrix2 ,matrix2Column ,matrix2Row = self.get_matrix()
+        matrix22 = self.ready4multi(matrix2,matrix2Row,matrix2Column) 
+        if matrix1Column == matrix2Column: 
+            result = [] 
+            for i in matrix1: 
+                d = [] 
+                for j in matrix22: 
+                    mSum=0 
+                    for k in range(matrix1Column): 
+                        mSum += i[k]*j[k] 
+                    d.append(mSum) 
+                result.append(d) 
+        return result
     def determinant(self):
         h=0#todo
     def invert(self):
